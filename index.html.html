@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Jornada DevOps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Helvetica:wght@400&display=swap" rel="stylesheet">
+  <style>
+
+    /* Reset de margens e padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #fff;
+      color: #000;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      border: 5px solid black; /* Borda preta em torno de toda a página */
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0;
+      border-bottom: 2px solid #3498db; /* Linha abaixo do título */
+    }
+
+    .profile-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      color: #000;
+      text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+      position: relative; /* Necessário para posicionar a bandeira corretamente */
+    }
+
+    .profile-img {
+      /* width: 150px; /* Tamanho da foto de perfil */
+      /* height: 150px; */
+      border-radius: 50%;
+      border: 3px solid #3498db;
+      object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+      
+      width: 200px;
+      height: 100%;
+      position: absolute; /* Posiciona a imagem em relação ao container */
+      top: 10px;
+      left: 200px;
+    }
+
+    .flag-img {
+      /* width: 40px; /* Tamanho da bandeira */
+      /* height: 40px; */
+      border-radius: 50%;
+      bottom: 80px; /* Posiciona a bandeira na parte inferior */
+      right: 30px; /* Posiciona a bandeira à direita */
+      border: 2px solid #d3da13; /* Borda branca ao redor da bandeira */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+      
+      width: 270%; /* Ajuste conforme necessário */
+      height: auto; /* Mantém a proporção da imagem */
+      position: absolute; /* Posiciona a imagem em relação ao container */
+      top: 90%; /* Ajuste a posição vertical */
+      left: 380px; /* Ajuste a posição horizontal */
+      transform: translate(-50%, -50%);
+    }
+    
+    h1,
+    .subtitle {
+      color: #000;
+      font-family: 'Raleway', Helvetica, sans-serif;
+    }
+
+    h1 {
+      font-weight: bold;
+      margin-top: 35px;
+    }
+
+    .subtitle {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #3498db;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      gap: 20px;
+      padding-top: 5px;
+    }
+
+    .social-links a img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      transition: transform 0.3s;
+    }
+
+    .social-links a img:hover {
+      transform: scale(1.2);
+    }
+
+    main {
+      background-color: #fff;
+      padding: 20px;
+      text-align: left;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #000;
+      font-size: 1.8em;
+      border-bottom: 1px solid #3498db;
+      padding-bottom: 10px;
+      font-weight: bold;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+      padding: 10px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      color: #000;
+      background-color: #f9f9f9;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #efefef;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #2980b9; /* Cor mais escura ao passar o mouse */
+      transform: scale(1.05); /* Efeito de zoom */
+    }
+
+    footer {
+      background-color: #f0f0f0;
+      color: #333;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 0; /* Remove margens padrão do parágrafo */
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Exibindo o cronograma */
+    #cronograma {
+      display: block; /* Alterado de 'none' para 'block' para exibir */
+    }
+    .imagens-foto-bandeira {
+      position: relative; /* Define o contexto de posicionamento */
+      width: 15px; 
+      height: 200px; 
+      left: 15%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <div class="profile-container">
+        <div class="imagens-foto-bandeira">
+          <img src="Nilson.jpeg" alt="Foto de Nilson, apresentando uma imagem profissional" class="profile-img">
+          <img src="IconeBandeiraBrasil.jpeg" alt="Bandeira do Brasil" class="flag-img">
+        </div>
+        <h1>Minha Jornada DevOps</h1>
+        <p class="subtitle">Do zero à Nuvem!</p>
+      </div>
+    </header>
+
+    <!-- Redes Sociais com Ícones -->
+    <div class="social-links">
+      <a href="https://github.com/nrosilva" target="_blank">
+        <img src="Iconegithub.png" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/nrosilva" target="_blank">
+        
+        <img src="Icone linkedin.png" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/nrosilva" target="_blank">
+        <img src="iconetwiter.png" alt="Twitter">
+      </a>
+    </div>
+
+    <main>
+      <!-- Link para o arquivo do cronograma -->
+      <section id="cronograma-link">
+        <h2> 👩‍💻 Cronograma de Estudos</h2>
+        <p>Acredito que o recurso mais importante eu deve possuir no início desta jornada
+          é um guia que servirá como uma espécie de mapa, feito por alguém que já percorreu esse caminho e que possui conhecimento
+          e experiência suficientes para direcionar nesta estrada então vale muita a pena ver esse artigo aqui. <a href="https://blog.edukti.com/devops-roadmap#heading-passo-5-cloud-computing" target="_blank">Cronograma de estudo</a>.</p>
+      </section>
+
+      <section id="reflexao">
+        <h2>Sobre Mim</h2>
+        <p>Além da técnica, é importante ter pensamento crítico, curiosidade e vontade de aprender sempre!
+          Decidi fazer a migração de área justamente por gostar muito de tecnologia e pelo desafio. 
+          Estou há mais de 15 anos na área comercial, atuando em vendas de telecom, gestão de resultados e pessoas. 
+          Tive contato com a área de produto e vi que fazia mais sentido pra mim profissionalmente. Desde então comecei a estudar UX/UI e noções de programação, metodologias ageis etc. 
+          Usando minha experiência em gestão de projetos e entregas, fui descobrindo a area de tecnologia e me aprofundando, estudando para certificações, 
+          fazendo cursos gratuitos para ter certezas onde iria ter maior foco nos estudos e nas areas relacionadas a tecnologia... 
+          Acredito que tenho muito a contribuir nessa transição de carreira. Sei que tecnologia é a area que exige estudo constante e isso é algo que gosto de fazer. Então decidi criar esse site, incluindo minha jornada de estudos, aplicando na pratica meus conhecimentos adquiridos nos cursos, e nos blogs etc. 
+          Olha talvez você que está lendo esse material, veja alguns erros que seria simples de resolver, mas relebro que aqui está o que aprendi em algumas aulas em video do yutube e CURSO EM VIDEO do Prof Guanabara etc. <Link></Link></p>
+      </section>
+
+      <section id="roadmap">
+        <h2>Como o roadmap tem me ajudado...💪</h2> 
+        <p>Seguir um roadmap de DevOps tem sido um dos maiores aliados na minha jornada de estudos e transição de carreira. Ao ingressar nesse mundo de práticas, ferramentas e tecnologias, é fácil se perder em meio à grande quantidade de informações disponíveis. O roadmap, como um guia estruturado, tem me ajudado a tomar decisões mais assertivas sobre o que estudar e quando estudar, evitando que eu perca tempo com tópicos que ainda não são essenciais para o meu momento.</p>
+        <h3>Por que seguir um Roadmap é tão importante?</h3>
+        <p>DevOps é uma área bastante ampla e dinâmica, onde novas ferramentas, metodologias e conceitos surgem o tempo todo. Sem uma estrutura clara, é fácil se sentir sobrecarregado. O roadmap funciona como uma bússola, me ajudando a visualizar uma sequência lógica de aprendizado, começando pelas bases de automação e integração contínua até chegar em práticas mais avançadas como monitoramento, segurança e orquestração de containers.</p>
+
+        <h3>Exemplos de como o roadmap me ajudou:</h3>
+        <ul>
+          <li><strong>Organização do Estudo:</strong> O roadmap me ajudou a focar no que realmente importa em cada etapa. Por exemplo, comecei estudando Git e integração contínua (CI), depois passei para entrega contínua (CD) e, mais tarde, incorporei ferramentas como Jenkins e Docker ao meu conhecimento.</li>
+          <li><strong>Acompanhamento do Progresso:</strong> O roadmap tem me ajudado a visualizar meu progresso de forma clara. Eu consigo ver o quanto evoluí, o que já aprendi e o que ainda precisa ser feito.</li>
+        </ul>
+
+        <h3>Como Conseguir Continuar no Estudo de DevOps</h3>
+        <p>O caminho no DevOps, como qualquer outra jornada de aprendizado, pode ser desafiador. Para não desistir e seguir firme nos estudos, aqui estão algumas práticas que têm me ajudado:</p>
+        <ul>
+          <li><strong>Estabelecer Metas Semanais:</strong> Divido o conteúdo do roadmap em partes menores e mais digestíveis.</li>
+          <li><strong>Estudo Prático:</strong> Criar projetos próprios ou contribuir em projetos open source tem sido uma excelente forma de aplicar o que aprendo e consolidar os conhecimentos.</li>
+          <li><strong>Participar de Comunidades:</strong> Interação com outras pessoas que estão na mesma jornada também é fundamental.</li>
+          <li><strong>Refletir Sobre o Progresso:</strong> Olho para o quanto já aprendi e percebo a evolução.</li>
+          <li><strong>Manter uma Rotina:</strong> Ter uma rotina diária ou semanal de estudos ajuda muito a manter o foco.</li>
+        </ul>
+        <p><strong>Conclusão:</strong> Seguir um roadmap de DevOps não é apenas uma forma de se organizar, mas também uma maneira de manter a disciplina e o foco nos estudos. Ele é um guia essencial que orienta minhas escolhas e me mantém no caminho certo. Ao dividir o aprendizado em etapas e utilizar estratégias como a prática constante, a definição de metas claras e a participação em comunidades, consigo avançar de forma consistente. DevOps é uma área de constante evolução, e é esse roadmap que me mantém motivado e focado para seguir aprendendo e crescendo.
+
+          Se você também está em uma jornada semelhante, eu recomendo fortemente que crie ou siga um roadmap estruturado. Ele pode ser o diferencial para sua trajetória! 
+          <p> Aqui está o Roadmap que eu usei. 😉 <a href="https://medium.com/@ghumare64/devops-roadmap-2025-352da3d08251" target="_blank">Roadmap 2025</a></p>
+        </section>
+
+      <section id="sugestoes-estudo">
+        <h2>Sugestões de Leitura e Estudos</h2>
+        <p>Aqui estão alguns conteúdos interessantes onde me aprofundei nos conhecimentos em DevOps e Observabilidade:</p>
+        <ul>
+          <li>
+            <strong><a href="https://medium.com/android-dev-br/azure-devops-ci-cd-de-aplica%C3%A7%C3%B5es-android-para-iniciantes-dbc964d8c7f1" target="_blank">Azure DevOps — CI/CD de aplicações Android para iniciantes</a></strong><br>
+            Autor: Jeffersson Semin.<br>
+            Resumo: Como distribuir aplicações Android em larga escala usando Azure DevOps.<br>
+            <em>Publicado em: 4 de Dezembro de 2020</em>
+          </li>
+          <li>
+            <strong><a href="https://medium.com/@alvarobacelar/prometheus-para-iniciantes-e8f82dfdfea6" target="_blank">Prometheus para iniciantes</a></strong><br>
+            Autor: Renato Ruis (Tim DevOps)<br>
+            Resumo: Guia introdutório sobre os fundamentos básicos do Prometheus.<br>
+            <em>Publicado em: 26 de Fevereiro de 2024</em>
+          </li>
+          <li>
+            <strong><a href="https://blog.toolboxdevops.cloud/devops-meus-pensamentos-sobre-rastreabilidade-de-software-4658ca0017e5" target="_blank">DevOps — Meus pensamentos sobre rastreabilidade de software</a></strong><br>
+            Autor: Thiago Silva - @thihenos (Toolbox Tech)<br>
+            Resumo: Experiências e ideias sobre rastreabilidade no desenvolvimento de software.<br>
+            <em>Publicado em: 8 de Janeiro de 2023</em>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+      
+        <img src="DevGift.gif" alt="Animação de presente relacionada a DevOps">
+      
+
+        <p><h2>Meu objetivo e meus estudos...🚀</h2>
+
+          DevOps é uma cultura e conjunto de práticas que integram desenvolvimento de software (Dev) e operações de TI (Ops) para acelerar a entrega de aplicações e serviços com alta qualidade. 
+          O objetivo principal é encurtar o ciclo de desenvolvimento, garantir entregas contínuas e melhorar a colaboração entre equipes.
+
+          Em DevOps, tenho a oportunidade de aprender e contribuir em áreas como,
+          
+          Automação de processos: Utilizar ferramentas como Jenkins, GitLab CI/CD, ou GitHub Actions para automatizar pipelines de integração e entrega contínua (CI/CD).
+          
+          Gerenciamento de Infraestrutura: Trabalhar com infraestrutura como código (IaC) usando ferramentas como Terraform ou Ansible para provisionar e gerenciar recursos de forma eficiente.
+          
+          Monitoramento e Logs: Ajudar na configuração de ferramentas de monitoramento (ex: Prometheus, Grafana) e gerenciamento de logs (ex: ELK Stack) para garantir a saúde dos sistemas.
+          
+          Colaboração: Apoiar equipes de desenvolvimento e operações, facilitando a comunicação e resolvendo problemas de integração entre sistemas.
+          
+          Cloud Computing: Aprender a trabalhar com provedores de nuvem como AWS, Azure ou Google Cloud, implementando soluções escaláveis e seguras.
+          
+          Habilidades importantes para um Júnior em DevOps incluem conhecimentos básicos em Linux, redes, scripting (ex: Bash, Python), familiaridade com containers (Docker) e orquestração (Kubernetes), além de uma mentalidade colaborativa e proativa.
+          
+          Meu objetivo é crescer em uma área em constante evolução, combinando desenvolvimento, operações e inovação tecnológica.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Minha Jornada DevOps. Todos os direitos reservados.</p>
+      <p>Feito por Nilson Rodrigues.</p>
+        <a href="https://www.linkedin.com/in/nrosilva" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/nrosilva" target="_blank">GitHub</a> |
+        <a href="mailto:nrosilva@me.com">E-mail</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+
+</html>
